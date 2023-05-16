@@ -1,0 +1,10 @@
+<button
+  class="custom-button"
+  [ngClass]="{
+    primary: isPrimary,
+    secondary: !isPrimary
+  }"
+  [disabled]="disabled"
+>
+  {{ text.toUpperCase() || 'VOLTAR' }}
+</button>
