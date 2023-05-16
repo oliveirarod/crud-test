@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background: $color-primary-darkest;
+  height: $navbar-height;
+  padding: 1rem;
+
+  .mobile-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .page-title {
+    margin: 0.25rem auto;
+
+    .logo {
+      background: $color-neutral-white;
+      border-radius: 25% 75% 25% 75% / 100% 0% 100% 0%;
+      color: $color-primary-medium;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.5rem 1.25rem;
+    }
+
+    .current-page {
+      color: $color-neutral-white;
+      margin-left: 0.5rem;
+    }
+  }
+}
