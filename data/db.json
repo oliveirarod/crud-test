@@ -1,16 +1,164 @@
 {
   "customers": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "johndoe@example.com",
-      "phone": "555-555-5555"
+      "name": "Jane Smith",
+      "monthlyIncome": 3000,
+      "email": "jane.smith@example.com",
+      "document": "123.456.789-10",
+      "dateOfBirth": "01/01/2023",
+      "createDate": "03/01/2023"
     },
     {
-      "id": 2,
-      "name": "Jane Doe",
-      "email": "janedoe@example.com",
-      "phone": "555-555-5555"
+      "name": "John Doe",
+      "monthlyIncome": 4000,
+      "email": "john.doe@example.com",
+      "document": "234.567.890-21",
+      "dateOfBirth": "02/02/2022",
+      "createDate": "04/01/2023"
+    },
+    {
+      "name": "Emily Johnson",
+      "monthlyIncome": 2500,
+      "email": "emily.johnson@example.com",
+      "document": "345.678.901-32",
+      "dateOfBirth": "03/03/2021",
+      "createDate": "05/01/2023"
+    },
+    {
+      "name": "Michael Williams",
+      "monthlyIncome": 3500,
+      "email": "michael.williams@example.com",
+      "document": "456.789.012-43",
+      "dateOfBirth": "04/04/2020",
+      "createDate": "06/01/2023"
+    },
+    {
+      "name": "Olivia Brown",
+      "monthlyIncome": 5000,
+      "email": "olivia.brown@example.com",
+      "document": "567.890.123-54",
+      "dateOfBirth": "05/05/2019",
+      "createDate": "07/01/2023"
+    },
+    {
+      "name": "James Taylor",
+      "monthlyIncome": 4500,
+      "email": "james.taylor@example.com",
+      "document": "678.901.234-65",
+      "dateOfBirth": "06/06/2018",
+      "createDate": "08/01/2023"
+    },
+    {
+      "name": "Sophia Anderson",
+      "monthlyIncome": 3200,
+      "email": "sophia.anderson@example.com",
+      "document": "789.012.345-76",
+      "dateOfBirth": "07/07/2017",
+      "createDate": "09/01/2023"
+    },
+    {
+      "name": "Liam Martinez",
+      "monthlyIncome": 2800,
+      "email": "liam.martinez@example.com",
+      "document": "890.123.456-87",
+      "dateOfBirth": "08/08/2016",
+      "createDate": "10/01/2023"
+    },
+    {
+      "name": "Ava Wilson",
+      "monthlyIncome": 3800,
+      "email": "ava.wilson@example.com",
+      "document": "901.234.567-98",
+      "dateOfBirth": "09/09/2015",
+      "createDate": "11/01/2023"
+    },
+    {
+      "name": "Noah Taylor",
+      "monthlyIncome": 4200,
+      "email": "noah.taylor@example.com",
+      "document": "012.345.678-09",
+      "dateOfBirth": "10/10/2014",
+      "createDate": "12/01/2023"
+    },
+    {
+      "name": "Isabella Johnson",
+      "monthlyIncome": 2900,
+      "email": "isabella.johnson@example.com",
+      "document": "123.456.789-10",
+      "dateOfBirth": "11/11/2013",
+      "createDate": "13/01/2023"
+    },
+    {
+      "name": "Mason Thompson",
+      "monthlyIncome": 3800,
+      "email": "mason.thompson@example.com",
+      "document": "234.567.890-21",
+      "dateOfBirth": "12/12/2012",
+      "createDate": "14/01/2023"
+    },
+    {
+      "name": "Charlotte Davis",
+      "monthlyIncome": 3500,
+      "email": "charlotte.davis@example.com",
+      "document": "345.678.901-32",
+      "dateOfBirth": "01/01/2012",
+      "createDate": "15/01/2023"
+    },
+    {
+      "name": "Benjamin Miller",
+      "monthlyIncome": 4100,
+      "email": "benjamin.miller@example.com",
+      "document": "456.789.012-43",
+      "dateOfBirth": "02/02/2011",
+      "createDate": "16/01/2023"
+    },
+    {
+      "name": "Amelia Wilson",
+      "monthlyIncome": 4400,
+      "email": "amelia.wilson@example.com",
+      "document": "567.890.123-54",
+      "dateOfBirth": "03/03/2010",
+      "createDate": "17/01/2023"
+    },
+    {
+      "name": "Henry Anderson",
+      "monthlyIncome": 3900,
+      "email": "henry.anderson@example.com",
+      "document": "678.901.234-65",
+      "dateOfBirth": "04/04/2009",
+      "createDate": "18/01/2023"
+    },
+    {
+      "name": "Elizabeth Martinez",
+      "monthlyIncome": 3300,
+      "email": "elizabeth.martinez@example.com",
+      "document": "789.012.345-76",
+      "dateOfBirth": "05/05/2008",
+      "createDate": "19/01/2023"
+    },
+    {
+      "name": "Sebastian Thompson",
+      "monthlyIncome": 4600,
+      "email": "sebastian.thompson@example.com",
+      "document": "890.123.456-87",
+      "dateOfBirth": "06/06/2007",
+      "createDate": "20/01/2023"
+    },
+    {
+      "name": "Evelyn Wilson",
+      "monthlyIncome": 3500,
+      "email": "evelyn.wilson@example.com",
+      "document": "901.234.567-98",
+      "dateOfBirth": "07/07/2006",
+      "createDate": "21/01/2023"
+    },
+    {
+      "name": "Alexander Smith",
+      "monthlyIncome": 4200,
+      "email": "alexander.smith@example.com",
+      "document": "012.345.678-09",
+      "dateOfBirth": "08/08/2005",
+      "createDate": "22/01/2023"
     }
   ]
 }

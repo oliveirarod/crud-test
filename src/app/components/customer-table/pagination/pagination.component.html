@@ -1,0 +1,37 @@
+<div class="pagination">
+  <button
+    class="pagination-button"
+    [disabled]="currentPage === 1"
+    (click)="goToPage(1)"
+  >
+    <i class="fa fa-angle-double-left"></i>
+  </button>
+
+  <button
+    class="pagination-button"
+    [disabled]="currentPage === 1"
+    (click)="goToPage(currentPage - 1)"
+  >
+    <i class="fa fa-angle-left"></i>
+  </button>
+
+  <span class="pagination-info"
+    >Página {{ currentPage }} de {{ getTotalPages() }}</span
+  >
+
+  <button
+    class="pagination-button"
+    [disabled]="currentPage === getTotalPages()"
+    (click)="goToPage(currentPage + 1)"
+  >
+    <i class="fa fa-angle-right"></i>
+  </button>
+
+  <button
+    class="pagination-button"
+    [disabled]="currentPage === getTotalPages()"
+    (click)="goToPage(getTotalPages())"
+  >
+    <i class="fa fa-angle-double-right"></i>
+  </button>
+</div>

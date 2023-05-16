@@ -1,0 +1,29 @@
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns" (click)="sortTable(column)">
+          {{ column.name }}
+          <span
+            *ngIf="sortColumn === column.prop"
+            [class]="'sort-icon ' + sortDirection"
+          >
+            <i class="fa fa-angle-down" *ngIf="sortDirection === 'asc'"></i>
+            <i class="fa fa-angle-up" *ngIf="sortDirection === 'desc'"></i>
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of displayedRows">
+        <td *ngFor="let column of columns">{{ row[column.prop] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-pagination
+  [itemsPerPage]="itemsPerPage"
+  [rows]="rows"
+  (goToPageEvent)="handlePageChange($event)"
+></app-pagination>

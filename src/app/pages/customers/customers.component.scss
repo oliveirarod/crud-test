@@ -2,3 +2,8 @@
 	display: flex;
 	justify-content: flex-end; // TODO: Mudar para space-between quando tiver mais elementos
 }
+
+.customers-body {
+	margin-top: 2rem;
+	// overflow: auto;
+}

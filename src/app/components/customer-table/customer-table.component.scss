@@ -1,0 +1,55 @@
+@import "../../../styles/variables";
+
+.table-container {
+  overflow: auto;
+
+  table {
+    width: 100%;
+    min-width: 1178px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-spacing: 0;
+
+    thead {
+      background: $color-primary-light;
+      color: $color-neutral-white;
+      border-radius: 100%;
+      font-size: 0.75rem;
+
+      th {
+        text-align: start;
+        cursor: pointer;
+
+        &:first-child {
+          border-radius: 2rem 0 0 2rem;
+        }
+
+        &:last-child {
+          border-radius: 0% 100% 4rem 0 / 100% 0% 100% 0%;
+        }
+      }
+    }
+
+    tbody {
+      color: $color-neutral-dark;
+      font-size: 0.625rem;
+
+      tr:nth-child(even) {
+        background: #f7f7f7;
+
+        td:first-child {
+          border-radius: 2rem 0 0 2rem;
+        }
+
+        td:last-child {
+          border-radius: 0 2rem 2rem 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      padding: 1rem 2rem;
+    }
+  }
+}
