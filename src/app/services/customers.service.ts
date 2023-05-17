@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { v4 as uuidv4 } from 'uuid';
+import { Customer } from '../shared/models/Customer';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,24 +13,26 @@ export class CustomersService {
 
   constructor(private http: HttpClient) {}
 
-  // TODO: Trocar o tipo any dos métodos
-  createCustomer(customer: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}`, customer);
+  createCustomer(customer: Customer): Observable<Customer> {
+    const id = uuidv4();
+    const customerWithId = { ...customer, id };
+
+    return this.http.post<Customer>(`${this.baseUrl}`, customerWithId);
   }
 
-  getCustomers(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.baseUrl}`);
   }
 
-  getCustomer(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getCustomer(id: string): Observable<Customer> {
+    return this.http.get<Customer>(`${this.baseUrl}/${id}`);
   }
 
-  update(id: string, customer: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${id}`, customer);
+  updateCustomer(id: string, customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(`${this.baseUrl}/${id}`, customer);
   }
 
-  delete(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteCustomer(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 }

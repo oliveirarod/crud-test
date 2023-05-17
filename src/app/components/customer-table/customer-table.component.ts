@@ -6,7 +6,7 @@ import {
   Input,
   SimpleChanges,
 } from '@angular/core';
-import { Customer, CustomerTableColumn } from 'src/app/models/Customer';
+import { Customer, CustomerTableColumn } from 'src/app/shared/models/Customer';
 
 @Component({
   selector: 'app-customer-table',

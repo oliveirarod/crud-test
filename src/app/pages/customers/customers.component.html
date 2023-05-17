@@ -3,11 +3,9 @@
     <div class="custom-input">
       <label>Clientes por página:</label>
       <input
-        #itemsPerPageInput
         type="number"
-        [value]="itemsPerPage"
+        [formControl]="itemsPerPageControl"
         class="page-size-input"
-        (blur)="handleItemsPerPage($event)"
       />
     </div>
 
@@ -18,6 +16,7 @@
           #searchInput
           type="text"
           [value]="CustomerFilter"
+          (keyup.enter)="handleCustomerFilter(searchInput)"
           class="search-input"
         />
       </div>
@@ -26,12 +25,14 @@
         class="search-icon"
         src="../../../assets/icons/search.svg"
         alt="Search icon"
-        (click)="handleCustomersFilters(itemsPerPageInput, searchInput)"
+        (click)="handleCustomerFilter(searchInput)"
       />
     </div>
   </div>
 
-  <button class="custom-button primary">ADICIONAR CLIENTE</button>
+  <button class="custom-button primary" (click)="navigateToCreateCustomer()">
+    Adicionar cliente
+  </button>
 </div>
 
 <div class="customers-body">

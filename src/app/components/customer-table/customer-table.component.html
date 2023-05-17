@@ -24,7 +24,21 @@
     <tbody>
       <tr *ngFor="let row of displayedRows">
         <td *ngFor="let column of columns" [ngClass]="'column-' + column.prop">
-          {{ row[column.prop] }}
+          <ng-container *ngIf="column.prop === 'name'">
+            {{ row[column.prop] }}
+          </ng-container>
+
+          <ng-container *ngIf="column.prop === 'document'">
+            {{ row[column.prop] | cpfMask }}
+          </ng-container>
+
+          <ng-container *ngIf="column.prop === 'createDate'">
+            {{ row[column.prop].replaceAll("-", "/") }}
+          </ng-container>
+
+          <ng-container *ngIf="column.prop === 'monthlyIncome'">
+            {{ row[column.prop] | currencyFormat }}
+          </ng-container>
         </td>
 
         <!-- Delete column -->
@@ -35,6 +49,11 @@
     </tbody>
   </table>
 </div>
+
+<!-- TODO: Adicionar texto em caso de não haver dados -->
+<!-- <div *ngIf="!displayedRows">
+  Não encontrado
+</div> -->
 
 <app-pagination
   [itemsPerPage]="itemsPerPage"

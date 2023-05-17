@@ -26,6 +26,7 @@ body {
   font-size: 0.75rem;
   font-weight: 700;
   color: $color-neutral-white;
+  text-transform: uppercase;
   cursor: pointer;
 
   &.primary {
@@ -43,6 +44,11 @@ body {
       background: $color-neutral-dark;
       color: $color-neutral-white;
     }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
   }
 }
 
@@ -63,5 +69,19 @@ body {
     border-radius: 0.5rem;
     padding: 2rem 1rem 0.75rem;
     outline: none;
+
+    &.has-error {
+      border-color: $color-feedback-danger-medium;
+    }
+  }
+
+  .validation-error {
+    margin: 0 0.5rem;
+    font-size: 0.625rem;
+    color: $color-feedback-danger-medium;
+
+    div {
+      margin-top: 0.25rem;
+    }
   }
 }

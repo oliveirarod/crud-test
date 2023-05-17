@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Customer } from 'src/app/models/Customer';
+import { Customer } from 'src/app/shared/models/Customer';
 
 @Component({
   selector: 'app-pagination',

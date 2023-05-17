@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerTableComponent } from './customer-table.component';
-import { Customer, CustomerTableColumn } from 'src/app/models/Customer';
+import { Customer, CustomerTableColumn } from 'src/app/shared/models/Customer';
 
 const mockRows: Customer[] = [
   {

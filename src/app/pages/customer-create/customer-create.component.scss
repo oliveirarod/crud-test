@@ -1,0 +1,17 @@
+.form-inputs {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+
+	.custom-input input {
+		width: 100%;
+	}
+}
+
+.buttons-container {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 5rem;
+	gap: 1rem;
+}
