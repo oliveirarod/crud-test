@@ -2,7 +2,11 @@
   <table>
     <thead>
       <tr>
-        <th *ngFor="let column of columns" (click)="sortTable(column)">
+        <th
+          *ngFor="let column of columns"
+          (click)="sortTable(column)"
+          [ngClass]="'column-' + column.prop"
+        >
           {{ column.name }}
           <span
             *ngIf="sortColumn === column.prop"
@@ -12,11 +16,21 @@
             <i class="fa fa-angle-up" *ngIf="sortDirection === 'desc'"></i>
           </span>
         </th>
+
+        <!-- Delete column -->
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of displayedRows">
-        <td *ngFor="let column of columns">{{ row[column.prop] }}</td>
+        <td *ngFor="let column of columns" [ngClass]="'column-' + column.prop">
+          {{ row[column.prop] }}
+        </td>
+
+        <!-- Delete column -->
+        <td class="column-delete">
+          <i class="fa fa-trash"></i>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -24,6 +38,6 @@
 
 <app-pagination
   [itemsPerPage]="itemsPerPage"
-  [rows]="rows"
+  [rows]="getFilteredRows()"
   (goToPageEvent)="handlePageChange($event)"
 ></app-pagination>

@@ -1,5 +1,11 @@
 import { CustomerTableService } from './../../services/customer-table.service';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnInit,
+  Input,
+  SimpleChanges,
+} from '@angular/core';
 import { Customer, CustomerTableColumn } from 'src/app/models/Customer';
 
 @Component({
@@ -7,11 +13,13 @@ import { Customer, CustomerTableColumn } from 'src/app/models/Customer';
   templateUrl: './customer-table.component.html',
   styleUrls: ['./customer-table.component.scss'],
 })
-export class CustomerTableComponent implements OnInit {
+export class CustomerTableComponent implements OnChanges, OnInit {
+  @Input() itemsPerPage: number = 6;
+  @Input() search: string;
+
+  // TODO: Inconsistência ao alterar o itemsPerPage enquanto o search está com a pesquisa 'o'
   rows: Customer[] = [];
   displayedRows: Customer[];
-
-  itemsPerPage: number = 7; // TODO: Criar campo para o usuário alterar o número de clientes por página
   currentPage: number = 1;
 
   sortColumn: string = 'createDate';
@@ -20,32 +28,39 @@ export class CustomerTableComponent implements OnInit {
   columns: CustomerTableColumn[] = [
     { prop: 'name', name: 'Nome', sort: true },
     { prop: 'document', name: 'CPF', sort: true },
-    { prop: 'dateOfBirth', name: 'Data de Nascimento', sort: true },
-    { prop: 'monthlyIncome', name: 'Renda Mensal', sort: true },
-    { prop: 'email', name: 'E-mail', sort: true },
     { prop: 'createDate', name: 'Data de Cadastro', sort: true },
+    { prop: 'monthlyIncome', name: 'Renda Mensal', sort: true },
   ];
 
   constructor(private tableService: CustomerTableService) {}
 
   ngOnInit(): void {
-    this.getCustomers();
+    this.handleCustomers();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.itemsPerPage?.currentValue) {
+      this.itemsPerPage = changes.itemsPerPage.currentValue;
+      this.filterDisplayedRows();
+    }
+
+    if (changes.search?.currentValue || changes.search?.currentValue === '') {
+      this.search = changes.search.currentValue;
+      this.filterDisplayedRows();
+    }
   }
 
   sortTable(column: CustomerTableColumn): void {
     if (column.sort) {
       if (this.sortColumn === column.prop) {
-        // Toggle sort direction if the same column is clicked
         this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
       } else {
-        // Set the clicked column as the new sort column and reset sort direction
         this.sortColumn = column.prop;
         this.sortDirection = 'asc';
       }
 
-      // Perform the actual sorting
       this.sortRows();
-      this.updateDisplayedRows();
+      this.filterDisplayedRows();
     }
   }
 
@@ -64,19 +79,34 @@ export class CustomerTableComponent implements OnInit {
     });
   }
 
-  updateDisplayedRows(): void {
+  filterDisplayedRows(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
 
-    this.displayedRows = this.rows.slice(startIndex, endIndex);
+    this.displayedRows = this.getFilteredRows().slice(startIndex, endIndex);
+  }
+
+  getFilteredRows(): Customer[] {
+    if (this.search) {
+      const searchValue = this.search.toLowerCase();
+
+      return this.rows.filter(
+        (row) =>
+          row.name.toLowerCase().includes(searchValue) ||
+          row.document.toLowerCase().includes(searchValue) ||
+          row.createDate.toLowerCase().includes(searchValue)
+      );
+    } else {
+      return this.rows;
+    }
   }
 
   handlePageChange(page: number) {
     this.currentPage = page;
-    this.updateDisplayedRows();
+    this.filterDisplayedRows();
   }
 
-  getCustomers() {
+  handleCustomers() {
     this.tableService.getCustomers().subscribe((customers) => {
       this.rows = customers;
 
@@ -85,7 +115,7 @@ export class CustomerTableComponent implements OnInit {
       );
       createDateColumn && this.sortTable(createDateColumn);
 
-      this.handlePageChange(1);
+      this.filterDisplayedRows();
     });
   }
 }

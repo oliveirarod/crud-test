@@ -1,7 +1,42 @@
 <div class="customers-header">
-  <app-button text="Adicionar cliente" [isPrimary]="true"> </app-button>
+  <div class="inputs-container">
+    <div class="custom-input">
+      <label>Clientes por página:</label>
+      <input
+        #itemsPerPageInput
+        type="number"
+        [value]="itemsPerPage"
+        class="page-size-input"
+        (blur)="handleItemsPerPage($event)"
+      />
+    </div>
+
+    <div class="flex-center">
+      <div class="custom-input">
+        <label>Pesquisar cliente:</label>
+        <input
+          #searchInput
+          type="text"
+          [value]="CustomerFilter"
+          class="search-input"
+        />
+      </div>
+
+      <img
+        class="search-icon"
+        src="../../../assets/icons/search.svg"
+        alt="Search icon"
+        (click)="handleCustomersFilters(itemsPerPageInput, searchInput)"
+      />
+    </div>
+  </div>
+
+  <button class="custom-button primary">ADICIONAR CLIENTE</button>
 </div>
 
 <div class="customers-body">
-  <app-customer-table></app-customer-table>
+  <app-customer-table
+    [itemsPerPage]="itemsPerPage"
+    [search]="CustomerFilter"
+  ></app-customer-table>
 </div>

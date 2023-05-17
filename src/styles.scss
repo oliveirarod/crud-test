@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap");
+@import "./styles/variables";
 
 * {
   margin: 0;
@@ -16,4 +17,51 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.custom-button {
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-neutral-white;
+  cursor: pointer;
+
+  &.primary {
+    background: $color-primary-dark;
+
+    &:hover {
+      background: $color-primary-light;
+    }
+  }
+
+  &.secondary {
+    background: $color-neutral-medium;
+
+    &:hover {
+      background: $color-neutral-dark;
+      color: $color-neutral-white;
+    }
+  }
+}
+
+.custom-input {
+  position: relative;
+  
+  label {
+    position: absolute;
+    color: $color-primary-medium;
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+  }
+  
+  input {
+    color: $color-primary-darkest;
+    border: 1px solid $color-neutral-lightest;
+    border-radius: 0.5rem;
+    padding: 2rem 1rem 0.75rem;
+    outline: none;
+  }
 }

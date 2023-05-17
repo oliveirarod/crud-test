@@ -5,10 +5,11 @@
 
   table {
     width: 100%;
-    min-width: 1178px;
+    min-width: 825px;
     font-weight: 700;
     text-transform: uppercase;
     border-spacing: 0;
+    table-layout: fixed;
 
     thead {
       background: $color-primary-light;
@@ -17,7 +18,7 @@
       font-size: 0.75rem;
 
       th {
-        text-align: start;
+        white-space: nowrap;
         cursor: pointer;
 
         &:first-child {
@@ -25,7 +26,9 @@
         }
 
         &:last-child {
-          border-radius: 0% 100% 4rem 0 / 100% 0% 100% 0%;
+          border-radius: 0% 100% 100% 0 / 100% 0% 100% 0%;
+          width: 50px;
+          pointer-events: none;
         }
       }
     }
@@ -49,7 +52,57 @@
 
     th,
     td {
-      padding: 1rem 2rem;
+      padding: 1rem 0.5rem;
+      line-height: 1.5;
+
+      &.column-name {
+        text-align: start;
+        padding: 1rem 0 1rem 1.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      &.column-document {
+        width: 175px;
+        text-align: center;
+
+        @media (min-width: 1400px) {
+          width: 225px;
+        }
+      }
+
+      &.column-createDate {
+        width: 200px;
+        text-align: center;
+
+        @media (min-width: 1400px) {
+          width: 250px;
+        }
+      }
+
+      &.column-monthlyIncome {
+        width: 200px;
+        text-align: start;
+
+        @media (min-width: 1400px) {
+          width: 250px;
+        }
+      }
+
+      &.column-delete {
+        padding-right: 1.5rem;
+        text-align: center;
+
+        i {
+          color: $color-feedback-danger-medium;
+          font-size: 1rem;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-feedback-danger-dark;
+          }
+        }
+      }
     }
   }
 }

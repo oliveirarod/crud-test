@@ -1,9 +1,65 @@
-.customers-header{
-	display: flex;
-	justify-content: flex-end; // TODO: Mudar para space-between quando tiver mais elementos
+.customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+	@media (max-width: 876px) {
+		align-items: flex-end;
+		flex-direction: column-reverse;
+		gap: 1.5rem;
+	}
+
+  .inputs-container {
+    display: flex;
+    gap: 1rem;
+
+		@media (max-width: 876px) {
+			margin-right: auto;
+		}
+
+		@media (max-width: 410px) {
+			gap: 0.5rem;
+		}
+
+		.page-size-input {
+			width: 175px;
+
+			@media (max-width: 480px) {
+				width: 175px;
+			}
+
+			@media (max-width: 410px) {
+				width: 157px;
+			}
+		}
+
+    .search-input {
+      width: 300px;
+
+			@media (max-width: 579px) {
+				width: 200px;
+			}
+
+			@media (max-width: 480px) {
+				width: 150px;
+			}
+
+			@media (max-width: 410px) {
+				width: 143px;
+			}
+    }
+
+    .search-icon {
+			margin-left: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
 }
 
 .customers-body {
-	margin-top: 2rem;
-	// overflow: auto;
+  margin-top: 2rem;
 }

@@ -10,6 +10,9 @@ import { Customer } from 'src/app/models/Customer';
   styleUrls: ['./customers.component.scss'],
 })
 export class CustomersComponent implements OnInit {
+  itemsPerPage: number = 6;
+  CustomerFilter: string = '';
+
   constructor(
     private customersService: CustomersService,
     private tableService: CustomerTableService
@@ -23,5 +26,17 @@ export class CustomersComponent implements OnInit {
     this.customersService.getCustomers().subscribe((customers) => {
       this.tableService.setCustomers(customers);
     });
+  }
+
+  handleItemsPerPage(e: any) {
+    this.itemsPerPage = e.target.value;
+  }
+
+  handleCustomersFilters(
+    itemsPerPage: HTMLInputElement,
+    search: HTMLInputElement
+  ) {
+    this.itemsPerPage = Number(itemsPerPage.value);
+    this.CustomerFilter = search.value;
   }
 }

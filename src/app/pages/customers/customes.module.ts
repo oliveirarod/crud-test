@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { CustomersComponent } from './customers.component';
-import { ButtonModule } from 'src/app/components/button/button.module';
 import { CustomerTableModule } from 'src/app/components/customer-table/customer-table.module';
 import { CustomerTableService } from 'src/app/services/customer-table.service';
 
@@ -10,8 +10,8 @@ import { CustomerTableService } from 'src/app/services/customer-table.service';
   declarations: [CustomersComponent],
   imports: [
     CommonModule,
-    ButtonModule,
     CustomerTableModule,
+    FormsModule
   ],
   providers: [CustomerTableService]
 })
