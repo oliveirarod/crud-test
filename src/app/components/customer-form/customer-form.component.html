@@ -11,14 +11,14 @@
           [placeholder]="control.placeholder"
           [mask]="control.mask || ''"
           [max]="currentDate()"
+          thousandSeparator="."
+          decimalSeparator=","
           [ngClass]="
             getControl(control.name)?.invalid &&
             getControl(control.name)?.touched
               ? 'has-error'
               : ''
           "
-          thousandSeparator="."
-          decimalSeparator=","
         />
 
         <div

@@ -28,10 +28,11 @@ export class CustomerCreateComponent implements OnInit {
   ngOnInit(): void {}
 
   submitForm(newCustomer: Customer): void {
+    this.handleMonthlyIncomeProp(newCustomer);
+
     this.customersService
       .createCustomer(newCustomer)
       .subscribe((createdCustomer: Customer) => {
-        console.log('createdCustomer: ', createdCustomer);
         this.deleteCustomerModalText = 'Cliente criado com sucesso!'
         this.successfullyCreated = true;
         this.showModal = true;
@@ -47,5 +48,9 @@ export class CustomerCreateComponent implements OnInit {
     if (this.successfullyCreated) {
       this.router.navigate(['customers']);
     }
+  }
+
+  handleMonthlyIncomeProp(customer: Customer) {
+    customer.monthlyIncome = customer.monthlyIncome.replaceAll('.', ',');
   }
 }

@@ -29,6 +29,9 @@ export class CustomerEditComponent implements OnInit {
   }
 
   submitForm(updatedCustomer: Customer): void {
+    this.handleMonthlyIncomeProp(updatedCustomer);
+
+    console.log(updatedCustomer.monthlyIncome);
     this.customersService
       .updateCustomer(this.customerId, updatedCustomer)
       .subscribe((customer: Customer) => {
@@ -57,9 +60,6 @@ export class CustomerEditComponent implements OnInit {
             { name: 'email', value: customer.email },
             { name: 'createDate', value: customer.createDate },
           ];
-
-          // TODO: Ajustar quando o monthlyIncome tiver ',' ou '.', o input está desconsiderando
-          console.log('customerProps: ', this.customerProps);
         });
     });
   }
@@ -72,5 +72,9 @@ export class CustomerEditComponent implements OnInit {
     if (this.successfullyCreated) {
       this.router.navigate(['customers']);
     }
+  }
+
+  handleMonthlyIncomeProp(customer: Customer) {
+    customer.monthlyIncome = customer.monthlyIncome.replaceAll('.', ',');
   }
 }

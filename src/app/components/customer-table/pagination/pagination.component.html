@@ -1,5 +1,4 @@
-<!-- TODO: Ajustar total de páginas quando não houver nenhum cliente -->
-<div class="pagination">
+<div class="pagination" *ngIf="getTotalPages()">
   <button
     class="pagination-button"
     [disabled]="currentPage === 1"

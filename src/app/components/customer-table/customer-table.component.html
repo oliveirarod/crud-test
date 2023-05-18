@@ -45,8 +45,6 @@
           </ng-container>
         </td>
 
-        <!-- TODO: Criar função de deletar -->
-        <!-- TODO: Criar modal de confirmação -->
         <!-- Delete column -->
         <td class="column-delete">
           <i class="fa fa-trash" (click)="openModal(customer)"></i>
@@ -54,12 +52,11 @@
       </tr>
     </tbody>
   </table>
-</div>
 
-<!-- TODO: Adicionar texto em caso de não haver dados -->
-<!-- <div *ngIf="!displayedRows">
-  Não encontrado
-</div> -->
+  <div *ngIf="!displayedCustomers.length" class="no-customers flex-center">
+    <span>Nenhum cliente encontrado.</span>
+  </div>
+</div>
 
 <app-pagination
   [itemsPerPage]="itemsPerPage"
@@ -72,5 +69,6 @@
   [text]="deleteCustomerModalText"
   [buttonText]="'Sim, excluir'"
   (onClose)="closeModal()"
-  (buttonClicked)="deleteCustomer()">
+  (buttonClicked)="deleteCustomer()"
+>
 </app-feedback-modal>

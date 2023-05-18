@@ -2,7 +2,7 @@ export interface Customer {
   name: string;
   document: string;
   dateOfBirth: string;
-  monthlyIncome: number;
+  monthlyIncome: string;
   email: string;
   createDate: string;
   [key: string]: any; 

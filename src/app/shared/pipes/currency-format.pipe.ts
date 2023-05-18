@@ -6,12 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CurrencyFormatPipe implements PipeTransform {
   transform(value: string | number): string {
     if (typeof value !== 'number') {
-      value = parseFloat(value);
+      value = parseFloat(value.toString().replace(',', '.'));
     }
 
     if (isNaN(value)) return '';
 
-    const formattedValue = value.toFixed(2).replace('.', ',');
-    return `R$ ${formattedValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
+    const formattedValue = value.toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+    return `R$ ${formattedValue}`;
   }
 }
