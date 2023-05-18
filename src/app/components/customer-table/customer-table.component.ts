@@ -1,4 +1,3 @@
-import { CustomerTableService } from './../../services/customer-table.service';
 import {
   Component,
   OnChanges,
@@ -6,7 +5,10 @@ import {
   Input,
   SimpleChanges,
 } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Customer, CustomerTableColumn } from 'src/app/shared/models/Customer';
+import { CustomersService } from 'src/app/services/customers.service';
 
 @Component({
   selector: 'app-customer-table',
@@ -32,7 +34,10 @@ export class CustomerTableComponent implements OnChanges, OnInit {
     { prop: 'monthlyIncome', name: 'Renda Mensal', sort: true },
   ];
 
-  constructor(private tableService: CustomerTableService) {}
+  constructor(
+    private customersService: CustomersService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.handleCustomers();
@@ -107,7 +112,7 @@ export class CustomerTableComponent implements OnChanges, OnInit {
   }
 
   handleCustomers() {
-    this.tableService.getCustomers().subscribe((customers) => {
+    this.customersService.getCustomers().subscribe((customers) => {
       this.rows = customers;
 
       const createDateColumn = this.columns.find(
@@ -117,5 +122,9 @@ export class CustomerTableComponent implements OnChanges, OnInit {
 
       this.filterDisplayedRows();
     });
+  }
+
+  goToCustomerEdit(customerId: string) {
+    this.router.navigate(['customers', customerId]);
   }
 }

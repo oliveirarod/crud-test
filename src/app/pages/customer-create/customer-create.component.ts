@@ -32,8 +32,4 @@ export class CustomerCreateComponent implements OnInit {
         // Handle success and navigation
       });
   }
-
-  updateFormValidity(isInvalid: boolean): void {
-    this.isFormInvalid = isInvalid;
-  }
 }

@@ -10,6 +10,7 @@
           [value]="control.value"
           [placeholder]="control.placeholder"
           [mask]="control.mask || ''"
+          [max]="currentDate()"
           [ngClass]="
             getControl(control.name)?.invalid &&
             getControl(control.name)?.touched
@@ -18,7 +19,6 @@
           "
           thousandSeparator="."
           decimalSeparator=","
-          [max]="currentDate()"
         />
 
         <div
@@ -52,3 +52,17 @@
     </ng-container>
   </div>
 </form>
+
+<div class="buttons-container">
+  <button class="custom-button secondary" (click)="resetAndGoToCustomers()">
+    Voltar
+  </button>
+
+  <button
+    class="custom-button primary"
+    (click)="onSubmitForm()"
+    [disabled]="newCustomerForm.invalid"
+  >
+    Salvar
+  </button>
+</div>

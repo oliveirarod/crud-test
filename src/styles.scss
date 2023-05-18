@@ -54,7 +54,7 @@ body {
 
 .custom-input {
   position: relative;
-  
+
   label {
     position: absolute;
     color: $color-primary-medium;
@@ -62,7 +62,7 @@ body {
     font-weight: 700;
     padding: 0.75rem 1rem;
   }
-  
+
   input {
     color: $color-primary-darkest;
     border: 1px solid $color-neutral-lightest;
@@ -72,6 +72,10 @@ body {
 
     &.has-error {
       border-color: $color-feedback-danger-medium;
+    }
+
+    &:disabled {
+      background: $color-neutral-lightest;
     }
   }
 

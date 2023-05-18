@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CustomersService } from 'src/app/services/customers.service';
 import { Customer } from 'src/app/shared/models/Customer';
+import { FormControlEditValue } from 'src/app/shared/models/FormControlConfig';
 
 @Component({
   selector: 'app-customer-edit',
@@ -10,28 +11,47 @@ import { Customer } from 'src/app/shared/models/Customer';
   styleUrls: ['./customer-edit.component.scss'],
 })
 export class CustomerEditComponent implements OnInit {
-  isFormInvalid: boolean = true;
+  customerProps: FormControlEditValue[];
+  customerId: string;
 
   constructor(
+    private route: ActivatedRoute,
     private customersService: CustomersService,
     private router: Router
   ) {}
-  
-  // TODO: Carregar os dados do cliente selecionado
-  ngOnInit(): void {}
 
-  // TODO: Editar para que seja editado ao invés de criado um novo
-  submitForm(newCustomer: Customer): void {
+  ngOnInit(): void {
+    this.handleSelectedCustomer();
+  }
+
+  submitForm(updatedCustomer: Customer): void {
     this.customersService
-      .createCustomer(newCustomer)
-      .subscribe((createdCustomer: Customer) => {
-        console.log('createdCustomer: ', createdCustomer);
+      .updateCustomer(this.customerId, updatedCustomer)
+      .subscribe((customer: Customer) => {
         this.router.navigate(['customers']);
-        // Handle success and navigation
       });
   }
 
-  updateFormValidity(isInvalid: boolean): void {
-    this.isFormInvalid = isInvalid;
+  handleSelectedCustomer() {
+    this.route.params.subscribe((params) => {
+      this.customerId = params['id'];
+      this.customersService
+        .getCustomerById(this.customerId)
+        .subscribe((customer: Customer | undefined) => {
+          if (!customer) {
+            this.router.navigate(['customers']);
+            return;
+          }
+
+          this.customerProps = [
+            { name: 'name', value: customer.name },
+            { name: 'document', value: customer.document, disabled: true },
+            { name: 'dateOfBirth', value: customer.dateOfBirth },
+            { name: 'monthlyIncome', value: customer.monthlyIncome },
+            { name: 'email', value: customer.email },
+            { name: 'createDate', value: customer.createDate },
+          ];
+        });
+    });
   }
 }

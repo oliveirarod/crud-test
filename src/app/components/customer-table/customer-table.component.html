@@ -22,25 +22,31 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of displayedRows">
-        <td *ngFor="let column of columns" [ngClass]="'column-' + column.prop">
+      <tr *ngFor="let customer of displayedRows">
+        <td
+          *ngFor="let column of columns"
+          [ngClass]="'column-' + column.prop"
+          (click)="goToCustomerEdit(customer.id)"
+        >
           <ng-container *ngIf="column.prop === 'name'">
-            {{ row[column.prop] }}
+            {{ customer[column.prop] }}
           </ng-container>
 
           <ng-container *ngIf="column.prop === 'document'">
-            {{ row[column.prop] | cpfMask }}
+            {{ customer[column.prop] | cpfMask }}
           </ng-container>
 
           <ng-container *ngIf="column.prop === 'createDate'">
-            {{ row[column.prop].replaceAll("-", "/") }}
+            {{ customer[column.prop].replaceAll("-", "/") }}
           </ng-container>
 
           <ng-container *ngIf="column.prop === 'monthlyIncome'">
-            {{ row[column.prop] | currencyFormat }}
+            {{ customer[column.prop] | currencyFormat }}
           </ng-container>
         </td>
 
+        <!-- TODO: Criar função de deletar -->
+        <!-- TODO: Criar modal de confirmação -->
         <!-- Delete column -->
         <td class="column-delete">
           <i class="fa fa-trash"></i>

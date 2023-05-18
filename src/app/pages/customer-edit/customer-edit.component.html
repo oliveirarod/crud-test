@@ -1,6 +1,4 @@
-<p>customer-edit works!</p>
-
 <app-customer-form
+  [formControlsValue]="customerProps"
   (submitFormEvent)="submitForm($event)"
-  (formValidityEvent)="updateFormValidity($event)"
 ></app-customer-form>

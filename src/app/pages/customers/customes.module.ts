@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomersComponent } from './customers.component';
 import { CustomerTableModule } from 'src/app/components/customer-table/customer-table.module';
-import { CustomerTableService } from 'src/app/services/customer-table.service';
 
 @NgModule({
   declarations: [CustomersComponent],
@@ -14,6 +13,6 @@ import { CustomerTableService } from 'src/app/services/customer-table.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [CustomerTableService]
+  providers: []
 })
 export class CustomersModule {}

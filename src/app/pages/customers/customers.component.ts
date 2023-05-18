@@ -1,11 +1,7 @@
-import { CustomerTableService } from './../../services/customer-table.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
-
-import { CustomersService } from 'src/app/services/customers.service';
-import { Customer } from 'src/app/shared/models/Customer';
 
 @Component({
   selector: 'app-customers',
@@ -19,20 +15,11 @@ export class CustomersComponent implements OnInit {
   CustomerFilter: string = '';
 
   constructor(
-    private customersService: CustomersService,
-    private tableService: CustomerTableService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.handleCustomers();
     this.handleItemsPerPage();
-  }
-
-  handleCustomers() {
-    this.customersService.getCustomers().subscribe((customers: Customer[]) => {
-      this.tableService.setCustomers(customers);
-    });
   }
 
   handleItemsPerPage() {
