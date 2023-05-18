@@ -136,6 +136,15 @@
       "email": "rodrigo.oliveira9104@outlook.com",
       "createDate": "2023-05-17",
       "id": "577ab410-7982-46de-b083-cafba43523c9"
+    },
+    {
+      "name": "Teste Teste",
+      "document": "49103963810",
+      "dateOfBirth": "2000-01-01",
+      "monthlyIncome": "7500",
+      "email": "teste@teste",
+      "createDate": "2023-05-18",
+      "id": "1902b574-6232-4393-abe2-d7654fb082bb"
     }
   ]
 }

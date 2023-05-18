@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomerCreateComponent } from './customer-create.component';
+import { CustomerFormModule } from "src/app/components/customer-form/customer-form.module";
 
 @NgModule({
   declarations: [CustomerCreateComponent],
@@ -11,7 +12,8 @@ import { CustomerCreateComponent } from './customer-create.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    CustomerFormModule
   ],
 })
 export class CustomerCreateModule {}

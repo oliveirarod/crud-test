@@ -1,68 +1,21 @@
-<form [formGroup]="newCustomerForm">
-  <div class="form-inputs">
-    <ng-container *ngFor="let control of formControls">
-      <div class="custom-input">
-        <label [for]="control.name">{{ control.label }}</label>
-        <input
-          [type]="control.type"
-          [id]="control.name"
-          [formControlName]="control.name"
-          [value]="control.value"
-          [placeholder]="control.placeholder"
-          [mask]="control.mask || ''"
-          [ngClass]="
-            getControl(control.name)?.invalid &&
-            getControl(control.name)?.touched
-              ? 'has-error'
-              : ''
-          "
-          thousandSeparator="."
-          decimalSeparator=","
-        />
+<app-customer-form
+  (submitFormEvent)="submitForm($event)"
+  (formValidityEvent)="updateFormValidity($event)"
+></app-customer-form>
 
-        <div
-          class="validation-error"
-          *ngIf="
-            getControl(control.name)?.invalid &&
-            getControl(control.name)?.touched
-          "
-        >
-          <div *ngIf="getControl(control.name)?.errors?.required">
-            {{ control.label }} é obrigatório.
-          </div>
+<div class="buttons-container">
+  <button
+    class="custom-button secondary"
+    (click)="customerFormComponent.resetAndGoToCustomers()"
+  >
+    Voltar
+  </button>
 
-          <div *ngIf="getControl(control.name)?.errors?.email">
-            E-mail inválido.
-          </div>
-
-          <div *ngIf="getControl(control.name)?.errors?.noLastName">
-            É necessário ao menos um sobrenome.
-          </div>
-
-          <div *ngIf="getControl(control.name)?.errors?.ageRange">
-            O cliente deve ter entre 18 e 60 anos.
-          </div>
-
-          <div *ngIf="getControl(control.name)?.errors?.invalidCpf">
-            O CPF deve ser válido.
-          </div>
-        </div>
-      </div>
-    </ng-container>
-  </div>
-
-  <div class="buttons-container">
-    <button class="custom-button secondary" (click)="resetAndGoBack()">
-      Voltar
-    </button>
-
-    <button
-      class="custom-button primary"
-      type="submit"
-      [disabled]="newCustomerForm.invalid"
-      (click)="submitForm()"
-    >
-      Salvar
-    </button>
-  </div>
-</form>
+  <button
+    class="custom-button primary"
+    (click)="customerFormComponent.onSubmitForm()"
+    [disabled]="isFormInvalid"
+  >
+    Salvar
+  </button>
+</div>

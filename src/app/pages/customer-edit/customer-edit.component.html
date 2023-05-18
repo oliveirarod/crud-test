@@ -1,1 +1,6 @@
 <p>customer-edit works!</p>
+
+<app-customer-form
+  (submitFormEvent)="submitForm($event)"
+  (formValidityEvent)="updateFormValidity($event)"
+></app-customer-form>

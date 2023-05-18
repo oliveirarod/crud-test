@@ -5,24 +5,24 @@ export function CpfValidator(): ValidatorFn {
     const cpf = control.value;
 
     if (!cpf) {
-      // Se o campo estiver vazio, considera-se válido
+      // If the field is empty, it is considered valid
       return null;
     }
 
-    // Remove caracteres não numéricos do CPF
+    // Remove non-numeric characters from the CPF
     const cleanedCpf = cpf.replace(/\D/g, '');
 
-    // Verifica se o CPF possui 11 dígitos
+    // Check if the CPF has 11 digits
     if (cleanedCpf.length !== 11) {
       return { invalidCpf: true };
     }
 
-    // Verifica se todos os dígitos são iguais (CPF inválido)
+    // Check if all digits are the same (invalid CPF)
     if (/^(\d)\1+$/.test(cleanedCpf)) {
       return { invalidCpf: true };
     }
 
-    // Calcula o primeiro dígito verificador
+    // Calculate the first verification digit
     let sum = 0;
     for (let i = 0; i < 9; i++) {
       sum += parseInt(cleanedCpf.charAt(i)) * (10 - i);
@@ -32,12 +32,12 @@ export function CpfValidator(): ValidatorFn {
       firstDigit = 0;
     }
 
-    // Verifica o primeiro dígito verificador
+    // Check the first verification digit
     if (parseInt(cleanedCpf.charAt(9)) !== firstDigit) {
       return { invalidCpf: true };
     }
 
-    // Calcula o segundo dígito verificador
+    // Calculate the second verification digit
     sum = 0;
     for (let i = 0; i < 10; i++) {
       sum += parseInt(cleanedCpf.charAt(i)) * (11 - i);
@@ -47,12 +47,12 @@ export function CpfValidator(): ValidatorFn {
       secondDigit = 0;
     }
 
-    // Verifica o segundo dígito verificador
+    // Check the second verification digit
     if (parseInt(cleanedCpf.charAt(10)) !== secondDigit) {
       return { invalidCpf: true };
     }
 
-    // CPF válido
+    // Valid CPF
     return null;
   };
 }
