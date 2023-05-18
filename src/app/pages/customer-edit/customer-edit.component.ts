@@ -31,7 +31,6 @@ export class CustomerEditComponent implements OnInit {
   submitForm(updatedCustomer: Customer): void {
     this.handleMonthlyIncomeProp(updatedCustomer);
 
-    console.log(updatedCustomer.monthlyIncome);
     this.customersService
       .updateCustomer(this.customerId, updatedCustomer)
       .subscribe((customer: Customer) => {
