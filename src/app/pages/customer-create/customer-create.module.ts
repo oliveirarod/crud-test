@@ -1,10 +1,11 @@
-import { NgxMaskModule } from "ngx-mask";
+import { NgxMaskModule } from 'ngx-mask';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomerCreateComponent } from './customer-create.component';
-import { CustomerFormModule } from "src/app/components/customer-form/customer-form.module";
+import { CustomerFormModule } from 'src/app/components/customer-form/customer-form.module';
+import { ModalModule } from 'src/app/components/feedback-modal/feedback-modal.module';
 
 @NgModule({
   declarations: [CustomerCreateComponent],
@@ -12,8 +13,9 @@ import { CustomerFormModule } from "src/app/components/customer-form/customer-fo
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    CustomerFormModule,
+    ModalModule,
     NgxMaskModule.forRoot(),
-    CustomerFormModule
   ],
 })
 export class CustomerCreateModule {}

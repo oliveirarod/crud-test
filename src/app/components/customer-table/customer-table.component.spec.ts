@@ -49,18 +49,18 @@ describe('CustomerTableComponent', () => {
 
   it('should sort rows when input rows change', () => {
     component.columns.push(createDateColumn);
-    component.rows = mockRows;
+    component.customers = mockRows;
     fixture.detectChanges();
 
     expect(component.sortColumn).toBe('createDate');
     expect(component.sortDirection).toBe('asc');
-    expect(component.rows[0].name).toBe('Jane');
-    expect(component.rows[1].name).toBe('John');
+    expect(component.customers[0].name).toBe('Jane');
+    expect(component.customers[1].name).toBe('John');
   });
 
   it('should toggle sort direction when the same column is clicked', () => {
     component.columns.push(createDateColumn);
-    component.rows = mockRows;
+    component.customers = mockRows;
     fixture.detectChanges();
 
     // Sort in ascending order
@@ -68,16 +68,16 @@ describe('CustomerTableComponent', () => {
     fixture.detectChanges();
 
     expect(component.sortDirection).toBe('asc');
-    expect(component.rows[0].name).toBe('Jane');
-    expect(component.rows[1].name).toBe('John');
+    expect(component.customers[0].name).toBe('Jane');
+    expect(component.customers[1].name).toBe('John');
 
     // Toggle sort direction
     component.sortTable(createDateColumn);
     fixture.detectChanges();
 
     expect(component.sortDirection).toBe('desc');
-    expect(component.rows[0].name).toBe('John');
-    expect(component.rows[1].name).toBe('Jane');
+    expect(component.customers[0].name).toBe('John');
+    expect(component.customers[1].name).toBe('Jane');
   });
 
   it('should set the clicked column as the new sort column and reset sort direction', () => {
@@ -88,7 +88,7 @@ describe('CustomerTableComponent', () => {
     };
 
     component.columns.push(nameColumn);
-    component.rows = mockRows;
+    component.customers = mockRows;
     fixture.detectChanges();
 
     // Sort in ascending order
@@ -97,8 +97,8 @@ describe('CustomerTableComponent', () => {
 
     expect(component.sortColumn).toBe('name');
     expect(component.sortDirection).toBe('asc');
-    expect(component.rows[0].name).toBe('Jane');
-    expect(component.rows[1].name).toBe('John');
+    expect(component.customers[0].name).toBe('Jane');
+    expect(component.customers[1].name).toBe('John');
 
     // Set the clicked column as the new sort column and reset sort direction
     component.sortTable(nameColumn);
@@ -106,7 +106,7 @@ describe('CustomerTableComponent', () => {
 
     expect(component.sortColumn).toBe('name');
     expect(component.sortDirection).toBe('asc');
-    expect(component.rows[0].name).toBe('John');
-    expect(component.rows[1].name).toBe('Jane');
+    expect(component.customers[0].name).toBe('John');
+    expect(component.customers[1].name).toBe('Jane');
   });
 });

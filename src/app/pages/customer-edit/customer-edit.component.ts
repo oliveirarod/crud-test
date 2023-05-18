@@ -14,6 +14,10 @@ export class CustomerEditComponent implements OnInit {
   customerProps: FormControlEditValue[];
   customerId: string;
 
+  showModal = false;
+  successfullyCreated = true;
+  deleteCustomerModalText: string;
+
   constructor(
     private route: ActivatedRoute,
     private customersService: CustomersService,
@@ -28,7 +32,9 @@ export class CustomerEditComponent implements OnInit {
     this.customersService
       .updateCustomer(this.customerId, updatedCustomer)
       .subscribe((customer: Customer) => {
-        this.router.navigate(['customers']);
+        this.deleteCustomerModalText = 'Cliente editado com sucesso!';
+        this.successfullyCreated = true;
+        this.showModal = true;
       });
   }
 
@@ -51,7 +57,20 @@ export class CustomerEditComponent implements OnInit {
             { name: 'email', value: customer.email },
             { name: 'createDate', value: customer.createDate },
           ];
+
+          // TODO: Ajustar quando o monthlyIncome tiver ',' ou '.', o input está desconsiderando
+          console.log('customerProps: ', this.customerProps);
         });
     });
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+  }
+
+  goBackToCustomers() {
+    if (this.successfullyCreated) {
+      this.router.navigate(['customers']);
+    }
   }
 }

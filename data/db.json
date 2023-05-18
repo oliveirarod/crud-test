@@ -1,22 +1,139 @@
 {
   "customers": [
     {
-      "name": "Rodrigo 1",
+      "name": "Rodrigo de Oliveira",
       "document": "49103963810",
       "dateOfBirth": "2000-12-18",
-      "monthlyIncome": "7500000000",
+      "monthlyIncome": "8000.00",
       "email": "rodrigo.oliveira9104@outlook.com",
       "createDate": "2023-05-17",
       "id": "577ab410-7982-46de-b083-cafba43523c9"
     },
     {
-      "name": "Teste Teste",
+      "name": "Rafaela Costa",
+      "document": "56918420735",
+      "dateOfBirth": "1998-01-14",
+      "monthlyIncome": "4800.00",
+      "email": "rafaela.costa@example.com",
+      "createDate": "2023-05-17",
+      "id": "2f6be040-5364-4e24-81d7-1397cfc3c92e"
+    },
+    {
+      "name": "Pedro Sousa",
+      "document": "86543129034",
+      "dateOfBirth": "1985-06-22",
+      "monthlyIncome": "9000.00",
+      "email": "pedro.sousa@example.com",
+      "createDate": "2023-05-17",
+      "id": "cf8c3922-006d-4ad2-9602-ba6dab51a88d"
+    },
+    {
+      "name": "Isabela Lima",
+      "document": "74823091564",
+      "dateOfBirth": "1993-11-02",
+      "monthlyIncome": "6200.00",
+      "email": "isabela.lima@example.com",
+      "createDate": "2023-05-17",
+      "id": "5e594a4e-3b13-4fe5-a4df-1e9fffebc36e"
+    },
+    {
+      "name": "Thiago Ferreira",
+      "document": "24683015792",
+      "dateOfBirth": "1987-08-10",
+      "monthlyIncome": "5800.00",
+      "email": "thiago.ferreira@example.com",
+      "createDate": "2023-05-17",
+      "id": "891c90a2-ae18-41be-b8fe-bef8b15b5e6b"
+    },
+    {
+      "name": "Fernanda Gomes",
+      "document": "71523960841",
+      "dateOfBirth": "1994-10-23",
+      "monthlyIncome": "7000.00",
+      "email": "fernanda.gomes@example.com",
+      "createDate": "2023-05-17",
+      "id": "cbed4c19-5a5d-495a-9e25-2d123f1f74f0"
+    },
+    {
+      "name": "Vitoria Carvalho",
+      "document": "39802471563",
+      "dateOfBirth": "1996-03-16",
+      "monthlyIncome": "5500.00",
+      "email": "vitoria.carvalho@example.com",
+      "createDate": "2023-05-17",
+      "id": "f2be84f4-96d7-472a-9f38-68e89cecc3db"
+    },
+    {
+      "name": "Eduardo Silva",
+      "document": "82713609472",
+      "dateOfBirth": "1989-12-11",
+      "monthlyIncome": "6300.00",
+      "email": "eduardo.silva@example.com",
+      "createDate": "2023-05-17",
+      "id": "7e4f9720-69b9-416b-8c94-5b459f727693"
+    },
+    {
+      "name": "Amanda Santos",
+      "document": "53109782640",
+      "dateOfBirth": "1993-09-28",
+      "monthlyIncome": "4800.00",
+      "email": "amanda.santos@example.com",
+      "createDate": "2023-05-17",
+      "id": "32d0d956-6509-4abf-8368-63719ed10c82"
+    },
+    {
+      "name": "Ricardo Alves",
+      "document": "67540128934",
+      "dateOfBirth": "1990-02-03",
+      "monthlyIncome": "7600.00",
+      "email": "ricardo.alves@example.com",
+      "createDate": "2023-05-17",
+      "id": "d7dc8c11-0c56-4e2e-973b-63b0eb8b8856"
+    },
+    {
+      "name": "Laura Oliveira",
+      "document": "81659324710",
+      "dateOfBirth": "1986-07-17",
+      "monthlyIncome": "9000.00",
+      "email": "laura.oliveira@example.com",
+      "createDate": "2023-05-17",
+      "id": "08cb7e63-1776-4a0e-958f-6fd79d34e197"
+    },
+    {
+      "name": "Henrique Martins",
+      "document": "41623980517",
+      "dateOfBirth": "1984-04-20",
+      "monthlyIncome": "5800.00",
+      "email": "henrique.martins@example.com",
+      "createDate": "2023-05-17",
+      "id": "4eb8b46e-9b1e-4c86-9d5a-9f5044b1868d"
+    },
+    {
+      "name": "Rodrigo de Oliveira",
       "document": "49103963810",
-      "dateOfBirth": "2000-01-01",
-      "monthlyIncome": "7500",
-      "email": "teste@teste",
+      "dateOfBirth": "2000-12-18",
+      "monthlyIncome": "10000",
+      "email": "rodrigo.oliveira9104@outlook.com",
       "createDate": "2023-05-18",
-      "id": "1902b574-6232-4393-abe2-d7654fb082bb"
+      "id": "2cae48e8-5958-415b-b092-9c8427ea8f50"
+    },
+    {
+      "name": "Rodrigo de Oliveira",
+      "document": "49103963810",
+      "dateOfBirth": "2000-12-18",
+      "monthlyIncome": "1000",
+      "email": "rodrigo.oliveira9104@outlook.com",
+      "createDate": "2023-05-18",
+      "id": "65338b4c-efaf-4c79-8302-80790fe0acee"
+    },
+    {
+      "name": "Rodrigo de Oliveira",
+      "document": "49103963810",
+      "dateOfBirth": "2000-12-18",
+      "monthlyIncome": "1000",
+      "email": "rodrigo.oliveira9104@outlook.com",
+      "createDate": "2023-05-18",
+      "id": "ac38ea5d-7354-494b-9c22-9c476cf00511"
     }
   ]
 }

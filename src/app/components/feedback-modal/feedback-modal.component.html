@@ -1,0 +1,21 @@
+<div class="modal" [class.open]="isOpen">
+  <div class="modal-overlay" (click)="this.onClose.emit()"></div>
+  <div class="modal-content flex-center">
+    <img
+      *ngIf="successIcon"
+      src="../../../assets/icons/success-circle.svg"
+      alt="Success circle"
+    />
+    <img
+      *ngIf="!successIcon"
+      src="../../../assets/icons/fail-circle.svg"
+      alt="Fail circle"
+    />
+
+    <p class="modal-text">{{ text }}</p>
+
+    <button (click)="buttonClicked.emit()" class="custom-button primary">
+      {{ buttonText }}
+    </button>
+  </div>
+</div>

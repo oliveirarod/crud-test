@@ -1,1 +1,9 @@
 <app-customer-form (submitFormEvent)="submitForm($event)"></app-customer-form>
+
+<app-feedback-modal
+  [isOpen]="showModal"
+	[successIcon]="successfullyCreated"
+  [text]="deleteCustomerModalText"
+  (onClose)="closeModal()"
+  (buttonClicked)="goBackToCustomers()">
+</app-feedback-modal>

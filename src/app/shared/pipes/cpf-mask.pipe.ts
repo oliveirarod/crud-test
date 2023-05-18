@@ -1,13 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'cpfMask'
+  name: 'cpfMask',
 })
 export class CpfMaskPipe implements PipeTransform {
   transform(value: string): string {
-    if (!value) {
-      return '';
-    }
+    if (!value) return '';
 
     const formattedValue = value.replace(/\D/g, '');
     const part1 = formattedValue.substr(0, 3);
