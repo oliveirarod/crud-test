@@ -1,15 +1,6 @@
 {
   "customers": [
     {
-      "name": "Rodrigo de Oliveira",
-      "document": "49103963810",
-      "dateOfBirth": "2000-12-18",
-      "monthlyIncome": "8000,52",
-      "email": "rodrigo.oliveira9104@outlook.com",
-      "createDate": "2023-05-17",
-      "id": "577ab410-7982-46de-b083-cafba43523c9"
-    },
-    {
       "name": "Juliana Santos",
       "document": "12345678901",
       "dateOfBirth": "1995-08-25",
